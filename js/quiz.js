@@ -1,5 +1,8 @@
 (function(){
+    var app = angular.module('myQuiz', []);
 
-	// script goes here
+    app.controller('QuizController', ['$scope', '$http', '$sce', function($scope, $http, $sce) {
+
+    }]);
 
 })();
