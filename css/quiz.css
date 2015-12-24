@@ -78,7 +78,7 @@ body {
     width: 550px;
     position: absolute;
     top: 225px;
-    left: 40px;
+    left: 660px;
 }
 
 #myQuiz .question .txt {
@@ -123,4 +123,68 @@ body {
 
 #myQuiz .question .ans.correct::after {
     background-image: url(../images/icon_correct.svg);
+}
+
+#myQuiz .question.unanswered .ans {
+    cursor: pointer;
+}
+
+#myQuiz .question.unanswered .ans:hover {
+    background-color: rgba(238, 189, 102, .2);
+}
+
+#myQuiz .question.answered .ans {
+    cursor: default;
+}
+
+/* Feedback */
+#myQuiz .feedback {
+    color: #efbe5e;
+    margin-top: 10px;
+    transition: opacity 1.5s, margin-top: 1.5s;
+    visibility: hidden;
+    opacity: 0;
+}
+#myQuiz .feedback .btn {
+    margin-top: 5px;
+}
+
+#myQuiz .feedback strong {
+    color: #fff;
+}
+
+#myQuiz .answered .feedback {
+    visibility: visible;
+    opacity: 1;
+    margin-top: 10px;
+}
+
+/* Results */
+#myQuiz .results {
+    position: absolute;
+    top: 225px;
+    left: 660px;
+    width: 550px;
+}
+
+#myQuiz .results .share {
+    margin-top: 40px;
+}
+
+#myQuiz .results .share a.btn {
+    margin-right: 20px;
+    padding: 9px 15px 8px 42px;
+    background-repeat: no-repeat;
+    background-position: 10px 5px;
+    background-size: 25px 25px;
+}
+
+#myQuiz .results .share a.btn.email {
+    background-color: #f0a121;
+    background-image: url(../images/icon_email.svg);
+}
+
+#myQuiz .results .share a.btn.twitter {
+    background-color: #59adeb;
+    background-image: url(../images/icon_twitter.svg);
 }
