@@ -1,6 +1,5 @@
 (function () {
     var app = angular.module('myQuiz', []);
-
     app.controller('QuizController', ['$scope', '$http', '$sce', function ($scope, $http, $sce) {
         $scope.score = 0;
         $scope.activeQuestion = -1;
@@ -12,6 +11,21 @@
             $scope.totalQuestions = $scope.myQuestions.length;
         });
 
-    }]);
+        $scope.selectAnswer = function (qIndex, aIndex) {
+            var questionState = $scope.myQuestions[qIndex].questionState;
+            if(questionState != 'answered') {
+                $scope.myQuestions[qIndex].selectedAnswer = aIndex;
+                var correctAnswer = $scope.myQuestions[qIndex].correct;
 
+                if(correctAnswer === aIndex) {
+                    $scope.myQuestions[qIndex].correctness = 'correct';
+                    $scope.score += 1;
+                } else {
+                    $scope.myQuestions[qIndex].correctness = 'incorrect';
+                }
+            }
+            $scope.myQuestions[qIndex].questionState = 'answered';
+        };
+
+    }]);
 })();
